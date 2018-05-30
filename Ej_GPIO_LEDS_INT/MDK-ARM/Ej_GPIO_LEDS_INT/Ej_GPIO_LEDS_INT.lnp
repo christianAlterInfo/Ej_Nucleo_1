@@ -1,0 +1,25 @@
+--cpu Cortex-M7.fp.dp
+"ej_gpio_leds_int\startup_stm32f767xx.o"
+"ej_gpio_leds_int\stm32f7xx_hal_msp.o"
+"ej_gpio_leds_int\stm32f7xx_it.o"
+"ej_gpio_leds_int\main.o"
+"ej_gpio_leds_int\system_stm32f7xx.o"
+"ej_gpio_leds_int\stm32f7xx_hal_rcc_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_gpio.o"
+"ej_gpio_leds_int\stm32f7xx_hal_tim.o"
+"ej_gpio_leds_int\stm32f7xx_hal_dma_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_pwr.o"
+"ej_gpio_leds_int\stm32f7xx_hal_cortex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_flash_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_flash.o"
+"ej_gpio_leds_int\stm32f7xx_hal_i2c_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_tim_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal.o"
+"ej_gpio_leds_int\stm32f7xx_hal_pwr_ex.o"
+"ej_gpio_leds_int\stm32f7xx_hal_i2c.o"
+"ej_gpio_leds_int\stm32f7xx_hal_rcc.o"
+"ej_gpio_leds_int\stm32f7xx_hal_dma.o"
+--library_type=microlib --strict --scatter "Ej_GPIO_LEDS_INT\Ej_GPIO_LEDS_INT.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Ej_GPIO_LEDS_INT.map" -o Ej_GPIO_LEDS_INT\Ej_GPIO_LEDS_INT.axf
