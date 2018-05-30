@@ -43,7 +43,7 @@ typedef enum
 	LD2,
 	LD3,
 	LD_OFF,
-} eMode;
+} eMode_2;
 
 extern uint8_t g_counter, mode;
 

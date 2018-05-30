@@ -30,3 +30,4 @@ ej_gpio_leds_int\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 ej_gpio_leds_int\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 ej_gpio_leds_int\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h
 ej_gpio_leds_int\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h
+ej_gpio_leds_int\main.o: ..\Inc\Drivers\Registros5642.h

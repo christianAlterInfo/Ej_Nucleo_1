@@ -19,6 +19,8 @@
 "ej_gpio_leds_int\stm32f7xx_hal_i2c.o"
 "ej_gpio_leds_int\stm32f7xx_hal_rcc.o"
 "ej_gpio_leds_int\stm32f7xx_hal_dma.o"
+"ej_gpio_leds_int\funcionessccb.o"
+"ej_gpio_leds_int\startstopofdatatransmission.o"
 --library_type=microlib --strict --scatter "Ej_GPIO_LEDS_INT\Ej_GPIO_LEDS_INT.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

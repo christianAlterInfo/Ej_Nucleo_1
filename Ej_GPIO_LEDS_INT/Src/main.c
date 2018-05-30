@@ -39,6 +39,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f7xx_hal.h"
+#include "Registros5642.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -53,11 +54,29 @@ TIM_HandleTypeDef htim3;
 /* Private variables ---------------------------------------------------------*/
 typedef enum
 {
+	Hardware = 0,
+	Software,
+} eReset;
+
+typedef enum
+{
+	INPUT = 0,
+	OUTPUT,
+} eMode;
+
+typedef enum
+{
+	LOW = 0,
+	HIGH,
+} eState;
+
+typedef enum
+{
 	LD1 = 0,
 	LD2,
 	LD3,
 	LD_OFF,
-} eMode;
+} eMode_2;
 
 uint16_t g_delay = 10000;
 
@@ -74,7 +93,23 @@ void MX_TIM3_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
+void delay_us( uint32_t us );
+uint32_t micros( void );
 
+extern uint16_t pin;
+extern void pinMode( uint16_t pin, uint8_t mode );
+extern void digitalWrite( uint16_t pin, uint8_t estado );
+extern uint8_t digitalRead( uint16_t pin );
+extern uint32_t micros( void );
+extern void delay_us( uint32_t );
+extern void OV_SDT( void );
+extern void OV_SPDT( void );
+extern void OV_PWUP( void );
+extern uint8_t OV_WRITE( uint16_t Data );
+extern uint8_t OV_READ( void );
+extern uint8_t OV_WREGISTER( uint16_t rID, uint8_t rDAT );
+extern uint8_t OV_RREGISTER( uint8_t rID, uint8_t *rDAT );
+extern uint8_t OV_RESET( eReset Mode_Reset );
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -124,24 +159,24 @@ int main(void)
 		switch( mode )
 		{
 			case LD1:
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_0, GPIO_PIN_SET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_7, GPIO_PIN_RESET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_14, GPIO_PIN_RESET );
+				digitalWrite( GPIO_PIN_0, HIGH );
+				digitalWrite( GPIO_PIN_7, LOW );
+				digitalWrite( GPIO_PIN_14, LOW );
 				break;
 			case LD2:
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_0, GPIO_PIN_SET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_7, GPIO_PIN_SET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_14, GPIO_PIN_RESET );
+				digitalWrite( GPIO_PIN_0, HIGH );
+				digitalWrite( GPIO_PIN_7, HIGH );
+				digitalWrite( GPIO_PIN_14, LOW );	
 				break;
 			case LD3:
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_0, GPIO_PIN_SET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_7, GPIO_PIN_SET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_14, GPIO_PIN_SET );
+				digitalWrite( GPIO_PIN_0, HIGH );
+				digitalWrite( GPIO_PIN_7, HIGH );
+				digitalWrite( GPIO_PIN_14, HIGH );
 				break;
 			case LD_OFF:
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_0, GPIO_PIN_RESET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_7, GPIO_PIN_RESET );
-				HAL_GPIO_WritePin( GPIOB, GPIO_PIN_14, GPIO_PIN_RESET );
+				digitalWrite( GPIO_PIN_0, LOW );
+				digitalWrite( GPIO_PIN_7, LOW );
+				digitalWrite( GPIO_PIN_14, LOW );
 				break;
 			default:
 				break;
@@ -350,7 +385,14 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+uint32_t micros(void){
+  return htim2.Instance->CNT;
+}
 
+void delay_us(uint32_t us){
+  uint32_t tInit = micros();
+  while((micros() - tInit) < us);
+}
 /* USER CODE END 4 */
 
 /**

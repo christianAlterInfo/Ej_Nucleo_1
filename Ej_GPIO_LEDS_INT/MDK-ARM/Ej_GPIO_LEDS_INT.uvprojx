@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;  ../Drivers/STM32F7xx_HAL_Driver/Inc;  ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32F7xx/Include;  ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F7xx_HAL_Driver/Inc;../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F7xx/Include;../Drivers/CMSIS/Include;..\Inc\Drivers</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -494,6 +494,21 @@
               <FileName>stm32f7xx_hal_dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SCCB</GroupName>
+          <Files>
+            <File>
+              <FileName>FuncionesSCCB.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Drivers\FuncionesSCCB.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartStopofDataTransmission.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Drivers\StartStopofDataTransmission.c</FilePath>
             </File>
           </Files>
         </Group>
