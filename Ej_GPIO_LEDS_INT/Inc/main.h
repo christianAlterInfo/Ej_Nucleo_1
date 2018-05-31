@@ -60,6 +60,8 @@
 #define SDATA_GPIO_Port GPIOE
 #define PWDN_Pin GPIO_PIN_10
 #define PWDN_GPIO_Port GPIOB
+#define Prueba_Pin GPIO_PIN_11
+#define Prueba_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
 #define LD3_GPIO_Port GPIOB
 #define XCLK_Pin GPIO_PIN_8

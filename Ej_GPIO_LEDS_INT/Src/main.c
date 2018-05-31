@@ -39,7 +39,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f7xx_hal.h"
-#include "Registros5642.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -89,7 +88,7 @@ uint8_t mode = LD_OFF;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
-void MX_TIM3_Init(void);
+static void MX_TIM3_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -292,7 +291,7 @@ static void MX_TIM2_Init(void)
 }
 
 /* TIM3 init function */
-void MX_TIM3_Init(void)
+static void MX_TIM3_Init(void)
 {
 
   TIM_ClockConfigTypeDef sClockSourceConfig;
@@ -301,7 +300,7 @@ void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 9600;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = g_delay;
+  htim3.Init.Period = 10000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
@@ -345,7 +344,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|PWDN_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|PWDN_Pin|Prueba_Pin|LD3_Pin 
+                          |LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, SCL_Pin|SDATA_Pin, GPIO_PIN_RESET);
@@ -356,8 +356,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin PWDN_Pin LD3_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|PWDN_Pin|LD3_Pin|LD2_Pin;
+  /*Configure GPIO pins : LD1_Pin PWDN_Pin Prueba_Pin LD3_Pin 
+                           LD2_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|PWDN_Pin|Prueba_Pin|LD3_Pin 
+                          |LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -385,11 +387,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-uint32_t micros(void){
+uint32_t micros( void )
+{
   return htim2.Instance->CNT;
 }
 
-void delay_us(uint32_t us){
+void delay_us( uint32_t us )
+{
   uint32_t tInit = micros();
   while((micros() - tInit) < us);
 }

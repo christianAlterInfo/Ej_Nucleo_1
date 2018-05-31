@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Ej_GPIO_LEDS_INT\Ej_GPIO_LEDS_INT.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Ej_GPIO_LEDS_INT\Ej_GPIO_LEDS_INT.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed May 30 13:52:34 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu May 31 09:51:26 2018
 <BR><P>
 <H3>Maximum Stack Usage =        184 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -818,16 +818,6 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 
-<P><STRONG><a name="[a6]"></a>MX_TIM3_Init</STRONG> (Thumb, 78 bytes, Stack size 40 bytes, main.o(i.MX_TIM3_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_TIM3_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
-</UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
-</UL>
-<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f767xx.o(RESET)
 </UL>
@@ -924,6 +914,16 @@ Local Symbols
 
 <P><STRONG><a name="[a4]"></a>MX_TIM2_Init</STRONG> (Thumb, 76 bytes, Stack size 40 bytes, main.o(i.MX_TIM2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
+</UL>
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
+</UL>
+<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a6]"></a>MX_TIM3_Init</STRONG> (Thumb, 78 bytes, Stack size 40 bytes, main.o(i.MX_TIM3_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_TIM3_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
